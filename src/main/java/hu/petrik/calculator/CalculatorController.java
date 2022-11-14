@@ -27,6 +27,7 @@ public class CalculatorController {
 
     private boolean beviteliSzamok = false;
 
+    @FXML
     public void HozzaadGomb(ActionEvent actionEvent) {
         String textField1 = szamEgyLabel.getText();
         String textField2 = szamKettoLabel.getText();
@@ -38,6 +39,7 @@ public class CalculatorController {
         }
     }
 
+    @FXML
     public void Ellenorzes(String textField1, String textField2){
         kiirLabel.setText(" ");
         beviteliSzamok = false;
@@ -77,6 +79,7 @@ public class CalculatorController {
     }
 
 
+    @FXML
     public void KivonasGomb(ActionEvent actionEvent) {
         String textField1 = szamEgyLabel.getText();
         String textField2 = szamKettoLabel.getText();
@@ -88,6 +91,7 @@ public class CalculatorController {
         }
     }
 
+    @FXML
     public void SzorzasGomb(ActionEvent actionEvent) {
         String textField1 = szamEgyLabel.getText();
         String textField2 = szamKettoLabel.getText();
@@ -99,6 +103,7 @@ public class CalculatorController {
         }
     }
 
+    @FXML
     public void ElosztasGomb(ActionEvent actionEvent) {
         String textField1 = szamEgyLabel.getText();
         String textField2 = szamKettoLabel.getText();
