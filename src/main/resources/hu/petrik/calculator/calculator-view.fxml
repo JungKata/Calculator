@@ -1,16 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="hu.petrik.calculator.HelloController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
+<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.petrik.calculator.CalculatorController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+   <children>
+      <HBox prefWidth="200.0" spacing="20.0">
+         <children>
+            <TextField fx:id="szamEgyLabel" alignment="TOP_LEFT" onAction="#ElsoSzam">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </TextField>
+            <TextField fx:id="szamKettoLabel" alignment="TOP_RIGHT" onAction="#MasodikSzam" />
+         </children>
+      </HBox>
+      <HBox spacing="20.0">
+         <children>
+            <Button fx:id="buttonHozzaad" graphicTextGap="1.0" mnemonicParsing="false" onAction="#HozzaadGomb" text="+">
+               <font>
+                  <Font size="18.0" />
+               </font></Button>
+            <Button fx:id="ButtonKivonas" mnemonicParsing="false" onAction="#KivonasGomb" text="-">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font></Button>
+            <Button fx:id="buttonSzorzas" mnemonicParsing="false" onAction="#SzorzasGomb" text="*">
+               <font>
+                  <Font size="18.0" />
+               </font></Button>
+            <Button fx:id="buttonElosztas" mnemonicParsing="false" onAction="#ElosztasGomb" text="/">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="buttonMaradek" mnemonicParsing="false" onAction="#MaradekGomb" text="\%">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font></Button>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" spacing="20.0">
+         <children>
+            <Label fx:id="kiirLabel" alignment="CENTER" onDragDetected="#Kiir">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+   </children>
 </VBox>
