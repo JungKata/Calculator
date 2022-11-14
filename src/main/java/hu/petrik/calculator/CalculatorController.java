@@ -33,7 +33,7 @@ public class CalculatorController {
         String textField1 = szamEgyLabel.getText();
         String textField2 = szamKettoLabel.getText();
         Ellenorzes(textField1, textField2);
-        if (beviteliSzamok){
+        if (beviteliSzamok) {
             double elso = Double.parseDouble(szamEgyLabel.getText());
             double masodik = Double.parseDouble(szamKettoLabel.getText());
             kiirLabel.setText(String.valueOf(elso + masodik));
@@ -41,37 +41,36 @@ public class CalculatorController {
     }
 
     @FXML
-    public void Ellenorzes(String textField1, String textField2){
+    public void Ellenorzes(String textField1, String textField2) {
         kiirLabel.setText(" ");
         beviteliSzamok = false;
         Alert warning = new Alert(Alert.AlertType.WARNING);
-        if (szamEgyLabel.getText().isEmpty() && szamKettoLabel.getText().isEmpty()){
+        if (szamEgyLabel.getText().isEmpty() && szamKettoLabel.getText().isEmpty()) {
             warning.setContentText("Nem adott meg számot!!!");
             warning.show();
         } else if (szamEgyLabel.getText() == null && szamKettoLabel.getText() == null) {
-            warning.setContentText("Minden mező kitöltése kötelező!");
+            warning.setContentText("Minden mező kitöltése kötelező vagy ellenőrizze számot adott e meg");
             warning.show();
-        }
-        else{
+        } else {
             //szam-e?
             Boolean szamEElso = true;
             Boolean szamEMasodik = true;
             try {
                 Double elsoSzam = Double.parseDouble(textField1);
-            }catch (NumberFormatException e){
+            } catch (NumberFormatException e) {
                 szamEElso = false;
+
             }
             try {
                 Double masodikSzam = Double.parseDouble(textField2);
-            }catch (NumberFormatException e){
+            } catch (NumberFormatException e) {
                 szamEMasodik = false;
             }
 
-            if (!szamEElso && !szamEMasodik ){
-                warning.setContentText("Minden mező kitöltése kötelező!!");
+            if (!szamEElso && !szamEMasodik) {
+                warning.setContentText("Minden mező kitöltése kötelező vagy ellenőrizze számot adott e meg!!");
                 warning.show();
-            }
-            else {
+            } else {
                 beviteliSzamok = true;
             }
         }
@@ -85,7 +84,7 @@ public class CalculatorController {
         String textField1 = szamEgyLabel.getText();
         String textField2 = szamKettoLabel.getText();
         Ellenorzes(textField1, textField2);
-        if (beviteliSzamok){
+        if (beviteliSzamok) {
             double elso = Double.parseDouble(szamEgyLabel.getText());
             double masodik = Double.parseDouble(szamKettoLabel.getText());
             kiirLabel.setText(String.valueOf(elso - masodik));
@@ -118,6 +117,16 @@ public class CalculatorController {
 
     @FXML
     public void MaradekGomb(ActionEvent actionEvent) {
-    }
+        String textField1 = szamEgyLabel.getText();
+        String textField2 = szamKettoLabel.getText();
+        Ellenorzes(textField1, textField2);
+        if (beviteliSzamok) {
+            double elso = Double.parseDouble(szamEgyLabel.getText());
+            double masodik = Double.parseDouble(szamKettoLabel.getText());
+            double maradek = elso % masodik;
+            double matek = Math.round(maradek*100)/100;
+            kiirLabel.setText(String.valueOf(matek));
+        }
 
+    }
 }
