@@ -87,4 +87,15 @@ public class CalculatorController {
             kiirLabel.setText(String.valueOf(elso - masodik));
         }
     }
+
+    public void SzorzasGomb(ActionEvent actionEvent) {
+        String textField1 = szamEgyLabel.getText();
+        String textField2 = szamKettoLabel.getText();
+        Ellenorzes(textField1, textField2);
+        if (beviteliSzamok) {
+            double elso = Double.parseDouble(szamEgyLabel.getText());
+            double masodik = Double.parseDouble(szamKettoLabel.getText());
+            kiirLabel.setText(String.valueOf(elso * masodik));
+        }
+    }
 }
